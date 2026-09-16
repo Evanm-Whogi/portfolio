@@ -5,31 +5,68 @@ import ThemeProvider from "@/components/theme/ThemeProvider";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 
 export const metadata = {
-  title: "ChitSh - Portfolio",
-  description: "Hi, my name's Whogi. I'm a computer science student and freelance web developer with a passion for coding, system administration, and raccoons. I love building clean, functional web experiences and constantly learning new things along the way.",
-  keywords: ["Full Stack", "Web Development", "Whogi", "Portfolio", "ChitSh", "Hosting", "System Administration", "Raccoons"],
+  metadataBase: new URL("https://chit.sh"),
+  title: {
+    default: "Evan Miller | Software Developer & System Administrator",
+    template: "%s | Evan Miller",
+  },
+  description: "Hi, my name's Evan. I'm a second-year computer science student and freelance web developer with a passion for coding and system administration I love building clean, functional web experiences and constantly learning new things along the way.",
+
+  keywords: [
+    "Evan Miller",
+    "Software Developer",
+    "Full Stack Developer",
+    "Web Developer",
+    "Computer Science",
+    "System Administrator",
+    "System Administration",
+    "Web Development",
+    "Full Stack Web Development",
+    "DevOps",
+    "Infrastructure",
+    "Cloud Computing",
+    "Portfolio",
+    "ChitSh",
+  ],
+
+  authors: [
+    {
+      name: "Evan Miller",
+      url: "https://chit.sh",
+    },
+  ],
+  creator: "Evan Miller",
+  publisher: "Evan Miller",
   openGraph: {
-    title: "ChitSh - Portfolio",
-    description: "Hi, my name's Whogi. I'm a computer science student and freelance web developer with a passion for coding, system administration, and raccoons. I love building clean, functional web experiences and constantly learning new things along the way.",
+    type: "website",
+    locale: "en_US",
     url: "https://chit.sh",
-    siteName: "ChitSh - Portfloio",
+    siteName: "Evan Miller",
+    title: "Evan Miller | Software Developer & System Administrator",
+    description:
+      "Computer science student, software developer, and system administrator building full-stack applications, infrastructure, and clean digital experiences.",
     images: [
       {
-        url: "https://chit.sh/logo.png",
+        url: "/logo.png",
         width: 960,
         height: 540,
-        alt: "ChitSh Logo"
-      }
+        alt: "Evan Miller — Software Developer & System Administrator",
+      },
     ],
-    type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "ChitSh - Portfolio",
-    description: "Hi, my name's Whogi. I'm a computer science student and freelance web developer with a passion for coding, system administration, and raccoons. I love building clean, functional web experiences and constantly learning new things along the way.",
-    images: ["https://chit.sh/logo.png"],
+    title: "Evan Miller | Software Developer & System Administrator",
+    description:
+      "Computer science student, software developer, and system administrator building full-stack applications and reliable infrastructure.",
+    images: ["/logo.png"],
   },
-  authors: [{ name: "Whogi" }],
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t='dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;

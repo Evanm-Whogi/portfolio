@@ -11,7 +11,7 @@ export default function Header() {
             {/* Social Media Icons */}
             <div className="flex items-center gap-3 pt-3">
                 <a href="https://github.com/Evanm-Whogi" aria-label="GitHub" className="text-muted hover:text-accent transition-colors"><Icon icon="bxl:github" className="size-9" /></a>
-                <a href="mailto:whogi@chit.sh" aria-label="Email" className="text-muted hover:text-accent transition-colors"><Icon icon="ic:baseline-email" className="size-9" /></a>
+                <a href="mailto:evan@etm.sh" aria-label="Email" className="text-muted hover:text-accent transition-colors"><Icon icon="ic:baseline-email" className="size-9" /></a>
                 <a href="https://www.linkedin.com/in/evanm-whogi/" aria-label="LinkedIn" className="text-muted hover:text-accent transition-colors"><Icon icon="bxl:linkedin-square" className="size-9" /></a>
             </div>
         </div>

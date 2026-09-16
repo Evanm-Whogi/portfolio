@@ -28,6 +28,19 @@ export default function FeaturedProjects() {
         return () => document.body.classList.remove('overflow-hidden');
     }, [modalState.isOpen]);
 
+    useEffect(() => {
+        if (!modalState.isOpen) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'Escape') closeModal();
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [modalState.isOpen, nextImage, prevImage, closeModal]);
+
     return (
         <div className="container mx-auto text-primary mb-12">
             <div className="flex flex-col md:flex-row pb-4 text-left place-content-between items-center">
@@ -67,12 +80,12 @@ export default function FeaturedProjects() {
             {modalState.isOpen && (
                 <>
                     <button onClick={closeModal} className="fixed top-4 right-4 z-[999] bg-black/40 rounded-full p-2 hover:bg-black/60 transition cursor-pointer"><Icon icon="material-symbols:close" className="text-white size-6 hover:text-accent" /></button>
-                    <div className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center">
+                    <div className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center" onClick={closeModal}>
                         <div className="relative w-full px-4">
                             <div className="flex items-center justify-between">
-                            <button onClick={prevImage} className="text-primary text-4xl px-4 hover:text-accent cursor-pointer"><Icon icon="weui:arrow-outlined" className="rotate-180" /></button>
-                            <Image src={modalState.images[modalState.index]?.src} alt={modalState.images[modalState.index]?.alt} width={1920} height={1080} className="max-h-[80vh] mx-auto rounded-lg object-contain"/>
-                            <button onClick={nextImage} className="text-primary text-4xl px-4 hover:text-accent cursor-pointer"><Icon icon="weui:arrow-outlined" /></button>
+                            <button onClick={(e) => { e.stopPropagation(); prevImage(); }} className="text-primary text-4xl px-4 hover:text-accent cursor-pointer"><Icon icon="weui:arrow-outlined" className="rotate-180" /></button>
+                            <Image src={modalState.images[modalState.index]?.src} alt={modalState.images[modalState.index]?.alt} width={1920} height={1080} className="max-h-[80vh] mx-auto rounded-lg object-contain" onClick={(e) => e.stopPropagation()}/>
+                            <button onClick={(e) => { e.stopPropagation(); nextImage(); }} className="text-primary text-4xl px-4 hover:text-accent cursor-pointer"><Icon icon="weui:arrow-outlined" /></button>
                             </div>
                         </div>
                     </div>
