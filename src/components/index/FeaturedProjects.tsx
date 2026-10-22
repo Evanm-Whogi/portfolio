@@ -45,7 +45,7 @@ export default function FeaturedProjects() {
         <div className="container mx-auto text-primary mb-12">
             <div className="flex flex-col md:flex-row pb-4 text-left place-content-between items-center">
                 <h1 className="text-4xl font-bold text-primary">Featured Projects</h1>
-                <a href="https://github.com/WhogiTheRaccoon?tab=repositories" className="text-2xl text-muted hover:text-accent flex items-center">See all projects <Icon icon="formkit:arrowright" className="size-8 pt-1" /></a>
+                <a href="https://github.com/Evanm-Whogi?tab=repositories" className="text-2xl text-muted hover:text-accent flex items-center">See all projects <Icon icon="formkit:arrowright" className="size-8 pt-1" /></a>
             </div>
             <div className="flex flex-col gap-4">
                { visibleProjects.map((project) => (

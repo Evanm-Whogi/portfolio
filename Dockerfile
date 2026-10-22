@@ -1,5 +1,5 @@
 # Step 1: Use the official Node.js image as the base
-FROM node:23-alpine
+FROM node:24.22.1-alpine
 
 # Step 2: Set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Step 4: Install dependencies
-RUN npm install
+RUN npm ci --no-audit --no-fund
 
 # Step 5: Copy the rest of the application files into the container
 COPY . .
@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Step 8: Start the application in production mode
-CMD ["npx", "next", "start"]
+CMD ["npm", "start"]
